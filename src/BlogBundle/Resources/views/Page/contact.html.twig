@@ -1,0 +1,26 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block title %}Kontakt{% endblock%}
+
+{% block body %}
+    {%  include 'BlogBundle:Partials:flasbag.html.twig' %}
+    <header>
+        <h1>Contact opnemen</h1>
+    </header>
+
+    <p>Wil je contact met mij hebben?</p>
+
+    {{ form(form, {
+        'method': 'POST',
+        'action' : path('Blogbundle_contact'),
+        'attr' : { 'class' : 'blogger' }
+    }) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form.name) }}
+        {{ form_widget(form.email) }}
+        {{ form_widget(form.subject) }}
+        {{ form_widget(form.body) }}
+        {{ form_widget(form.submit) }}
+        {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}

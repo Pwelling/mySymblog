@@ -1,0 +1,22 @@
+Blogbundle_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Page:index }
+    methods: [GET]
+Blogbundle_about:
+    path:  /over
+    defaults: { _controller: BlogBundle:Page:about }
+    methods: [GET]
+Blogbundle_contact:
+    path: /contact
+    defaults: { _controller: BlogBundle:Page:contact }
+    methods: [GET, POST]
+BlogBundle_blog_show:
+    path:  /{id}/{slug}
+    defaults: { _controller: BlogBundle:Blog:show }
+    methods: [GET, POST]
+    requirements: { id: \d+ }
+BlogBundle_comment_create:
+    path: /comment/create/{id}
+    defaults: { _controller: BlogBundle:Comment:create }
+    methods: [POST]
+    requirements: { id: \d+ }

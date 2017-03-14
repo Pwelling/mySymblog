@@ -1,0 +1,10 @@
+{% for type, flashes in app.session.flashbag.all %}
+    {% for flash in flashes %}
+        {% if (type | slice(0, 8)) == 'fos_user' %}
+            {% set type = (type | slice(9)) %}
+        {% endif %}
+        <div class="alert alert-{{ type }} fade-in alert-dismissable blogger-notice">
+            {{ flash | raw }}
+        </div>
+    {% endfor %}
+{% endfor %}

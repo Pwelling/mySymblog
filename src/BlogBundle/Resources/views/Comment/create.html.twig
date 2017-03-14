@@ -1,0 +1,8 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block title %}Add Comment{% endblock%}
+
+{% block body %}
+    <h1>Een opmerking toevoegen aan het blog "{{ comment.blog.title }}"</h1>
+    {% include 'BlogBundle:Comment:form.html.twig' with { 'form': form, 'blog' : comment.blog } %}
+{% endblock %}

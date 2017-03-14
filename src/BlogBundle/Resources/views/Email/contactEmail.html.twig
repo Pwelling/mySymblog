@@ -1,0 +1,19 @@
+<style type="text/css">
+    th { vertical-align: text-top; padding-top: 3px; width: 200px; text-align: left; background-color: #DFF2BF;}
+</style>
+<h3>Bericht vanaf irisopavontuur.nl</h3>
+<p>{{ enquiry.name }} heeft op {{ "now" | date("Y-m-d H:i") }} het onderstaande bericht verzonden:</p>
+<table>
+    <tr>
+        <th>Emailadres</th>
+        <td><a href="emailto:{{ enquiry.email }}">{{ enquiry.email }}</a></td>
+    </tr>
+    <tr>
+        <th>Onderwerp</th>
+        <td>{{ enquiry.subject }}</td>
+    </tr>
+    <tr>
+        <th>Bericht</th>
+        <td>{{ enquiry.body | nl2br }}</td>
+    </tr>
+</table>

@@ -1,0 +1,25 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block body %}
+    {% for blog in blogs %}
+        <article class="blog">
+            <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('d-m-Y') }}</time></div>
+            <header>
+                <h2><a href="{{ path('BlogBundle_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}">{{ blog.title }}</a></h2>
+            </header>
+
+            <div class="snippet">
+                <p>{{ blog.blog | striptags | convert_encoding('UTF-8', 'HTML-ENTITIES') | slice(0, 350) ~ '...' }}</p>
+                <p class="continue"><a href="{{ path('BlogBundle_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}">Verder lezen...</a></p>
+            </div>
+
+            <footer class="meta">
+                <p>Opmerkingen: <a href="{{ path('BlogBundle_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}#comments">{{ blog.comments|length }}</a></p>
+                <p>Geplaatst door <span class="highlight">{{blog.author}}</span> op {{ blog.created|date('d-m-Y H:i') }}</p>
+                <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
+            </footer>
+        </article>
+    {% else %}
+        <p>Er zijn nog geen items om weer te geven</p>
+    {% endfor %}
+{% endblock %}

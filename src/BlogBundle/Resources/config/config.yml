@@ -1,0 +1,3 @@
+parameters:
+    # Blogger contact email address
+    blogbundle.emails.contact_email: patrick@wellingonline.eu

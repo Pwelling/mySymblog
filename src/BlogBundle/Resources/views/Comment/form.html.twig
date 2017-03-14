@@ -1,0 +1,7 @@
+{{ form(form, {
+    'method': 'POST',
+    'action' : path('BlogBundle_blog_show', { 'id' : blog.id, 'slug': blog.slug }),
+    'attr' : { 'class' : 'blogger' }
+}) }}
+    {{ form_widget(form) }}
+{{ form_end }}
